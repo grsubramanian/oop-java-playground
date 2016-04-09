@@ -26,8 +26,8 @@ public class Main {
     // The input is read by A.
     // A concatenates the input to itself.
     // A passes on the transformed values to B and C.
-    // B lower-cases its input and passes on to D.
-    // C upper-cases its input and passes on to D.
+    // B lower-cases its input and then passes on to D.
+    // C upper-cases its input, wraps it with quotes and then passes on to D.
     // D merely prints the output.
 
     // Set up D first.
@@ -40,7 +40,10 @@ public class Main {
 
     // Setup C (by wiring to D).
     EventSource<WorkUnit> eventSourceDelegateForC = createWithDownstreamObservers(processorForD);
-    Transformer<WorkUnit> transformerForC = new UppercasingTransformerImpl();
+    Transformer<WorkUnit> transformerForC =
+        Transformers.getDecoratedTransformer(
+            new UppercasingTransformerImpl(),
+            new QuotingTransformerImpl());
     EventProcessor<WorkUnit> processorForC =
         createProcessor(transformerForC, eventSourceDelegateForC);
 
