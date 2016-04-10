@@ -1,8 +1,11 @@
 package gokul2411s.projects.patternsrepo.command;
 
 /**
- * Represents a {@link Command} whose side-effects on execution can be reversed.
+ * Represents a command, which can be executed and whose execution side-effects can be reversed.
  */
-public interface ReversibleCommand extends Command {
+public interface ReversibleCommand {
+
+  void execute();
+
   void reverse();
 }

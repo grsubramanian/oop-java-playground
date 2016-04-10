@@ -1,6 +1,9 @@
 package gokul2411s.projects.patternsrepo.editor;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.primitives.Ints;
+import gokul2411s.projects.patternsrepo.command.CompositeCommand;
+import gokul2411s.projects.patternsrepo.command.ReversibleCommand;
 import gokul2411s.projects.patternsrepo.command.StatefulInvoker;
 import gokul2411s.projects.patternsrepo.command.StatefulInvokers;
 
@@ -38,13 +41,24 @@ public class Main {
           String[] lineSplit = line.split(" ");
           switch (lineSplit[0]) {
             case APPEND_COMMAND:
-              char charToAppend = lineSplit[1].charAt(0);
-              statefulInvoker.react(new AppendCharCommand(asciiText, charToAppend));
+              // Create a composite command, encapsulating one append command per character
+              ImmutableList.Builder<ReversibleCommand> appendCommandsBuilder =
+                  ImmutableList.builder();
+              for (char asciiChar : lineSplit[1].toCharArray()) {
+                appendCommandsBuilder.add(new AppendCharCommand(asciiText, asciiChar));
+              }
+              statefulInvoker.react(new CompositeCommand(appendCommandsBuilder.build()));
               break;
             case INSERT_COMMAND:
-              char charToInsert = lineSplit[1].charAt(0);
               int indexToInsert = Ints.tryParse(lineSplit[2]);
-              statefulInvoker.react(new InsertCharCommand(asciiText, charToInsert, indexToInsert));
+              // Create a composite command, encapsulating one insert command per character
+              ImmutableList.Builder<ReversibleCommand> insertCommandsBuilder =
+                  ImmutableList.builder();
+              for (char asciiChar : lineSplit[1].toCharArray()) {
+                insertCommandsBuilder.add(
+                    new InsertCharCommand(asciiText, asciiChar, indexToInsert));
+              }
+              statefulInvoker.react(new CompositeCommand(insertCommandsBuilder.build()));
               break;
             case DELETE_COMMAND:
               int indexToDelete = Ints.tryParse(lineSplit[1]);
@@ -64,6 +78,5 @@ public class Main {
         System.out.format("Text is [%s]\n\n", asciiText.toString());
       }
     }
-
   }
 }
