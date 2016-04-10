@@ -1,7 +1,7 @@
 package gokul2411s.projects.patternsrepo.layering.high;
 
 /**
- * Created by gokul on 4/8/16.
+ * Represents a message generated at a high level.
  */
 public final class HighLevelMessage {
 
