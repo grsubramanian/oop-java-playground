@@ -1,7 +1,6 @@
 package gokul2411s.projects.patternsrepo.command;
 
 import com.google.common.base.Preconditions;
-import gokul2411s.projects.patternsrepo.events.EventObserver;
 
 import java.util.Stack;
 

@@ -5,7 +5,8 @@ import java.util.concurrent.Callable;
 /**
  * Represents retry strategies.
  */
-public interface RetryStrategy<V> {
+public interface
+RetryStrategy<V> {
 
   V call(Callable<V> callable) throws Exception;
 }

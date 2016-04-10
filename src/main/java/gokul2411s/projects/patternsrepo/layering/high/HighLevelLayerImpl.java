@@ -1,6 +1,5 @@
 package gokul2411s.projects.patternsrepo.layering.high;
 
-import gokul2411s.projects.patternsrepo.layering.low.LowLevelException;
 import gokul2411s.projects.patternsrepo.layering.low.LowLevelLayer;
 import gokul2411s.projects.patternsrepo.layering.low.LowLevelMessage;
 import gokul2411s.projects.patternsrepo.layering.low.LowLevelRuntimeException;

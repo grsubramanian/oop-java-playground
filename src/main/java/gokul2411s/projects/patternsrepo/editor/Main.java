@@ -10,7 +10,6 @@ import gokul2411s.projects.patternsrepo.command.StatefulInvokers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 /**
  * A sample editor application, where the user input is simulated by creating command objects.
