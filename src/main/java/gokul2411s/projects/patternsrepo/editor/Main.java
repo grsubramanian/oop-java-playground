@@ -41,7 +41,7 @@ public class Main {
           String[] lineSplit = line.split(" ");
           switch (lineSplit[0]) {
             case APPEND_COMMAND:
-              // Create a composite command, encapsulating one append command per character
+              // Create a composite command, encapsulating one append command per character.
               ImmutableList.Builder<ReversibleCommand> appendCommandsBuilder =
                   ImmutableList.builder();
               for (char asciiChar : lineSplit[1].toCharArray()) {
@@ -51,7 +51,7 @@ public class Main {
               break;
             case INSERT_COMMAND:
               int indexToInsert = Ints.tryParse(lineSplit[2]);
-              // Create a composite command, encapsulating one insert command per character
+              // Create a composite command, encapsulating one insert command per character.
               ImmutableList.Builder<ReversibleCommand> insertCommandsBuilder =
                   ImmutableList.builder();
               for (char asciiChar : lineSplit[1].toCharArray()) {
