@@ -12,7 +12,7 @@ import gokul2411s.projects.patternsrepo.retrystrategy.RetryStrategy;
 /**
  * Sample application for a layered architecture.
  */
-public class Main {
+class Main {
 
   public static void main(String[] args) throws HighLevelException {
 

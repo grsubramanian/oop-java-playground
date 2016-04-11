@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 /**
  * A sample editor application, where the user input is simulated by creating command objects.
  */
-public class Main {
+class Main {
 
   private static final String APPEND_COMMAND = "APPEND";
   private static final String INSERT_COMMAND = "INSERT";
