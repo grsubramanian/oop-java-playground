@@ -39,7 +39,7 @@ class Investor {
   static class Builder {
 
     private String name;
-    private Optional<Integer> numInvestments;
+    private Optional<Integer> numInvestments = Optional.absent();
     private Optional<LocalDate> dateOfBirth = Optional.absent();
 
     Builder(String name) {
