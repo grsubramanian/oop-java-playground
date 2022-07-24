@@ -1,20 +1,28 @@
 group 'gokul2411s.projects'
 version '1.0-SNAPSHOT'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.12'
-}
-
 apply plugin: 'java'
-sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
 dependencies {
-    compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.0'
-    compile group:'joda-time', name:'joda-time', version:'2.9.3'
-    compile group: 'com.google.guava', name: 'guava', version:'19.0'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    implementation 'joda-time:joda-time:2.9.3'
+    implementation 'com.google.guava:guava:19.0'
+	
+    // Testing.
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'junit:junit:4.11'
 }

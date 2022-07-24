@@ -2,8 +2,6 @@ package gokul2411s.projects.patternsrepo.directorytraversal;
 
 import org.joda.time.Instant;
 
-import javax.annotation.Nullable;
-
 /**
  * Represents a file on a filesystem.
  */
@@ -15,7 +13,7 @@ interface File {
 
   Directory getParentDirectory();
 
-  void setParentDirectory(@Nullable Directory parentDirectory);
+  void setParentDirectory(Directory parentDirectory);
 
   Instant getCreationTimestamp();
 

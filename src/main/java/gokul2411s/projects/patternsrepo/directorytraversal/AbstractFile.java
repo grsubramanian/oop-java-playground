@@ -2,7 +2,6 @@ package gokul2411s.projects.patternsrepo.directorytraversal;
 
 import org.joda.time.Instant;
 
-import javax.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.Stack;
 
@@ -49,7 +48,7 @@ abstract class AbstractFile implements File {
   }
 
   @Override
-  public synchronized void setParentDirectory(@Nullable Directory parentDirectory) {
+  public synchronized void setParentDirectory(Directory parentDirectory) {
     if (parentDirectory == null) {
       this.parentDirectory = null;
     } else {
